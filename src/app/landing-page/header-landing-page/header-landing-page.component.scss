@@ -1,0 +1,97 @@
+.hero-header {
+    /* Cor de fundo principal (seu verde) */
+    background: rgb(47, 222, 145);
+    /* Adiciona um gradiente sutil para mais profundidade */
+    background: linear-gradient(135deg, rgb(47, 222, 145) 0%, rgb(35, 180, 115) 100%);
+    color: white; /* Cor do texto */
+    padding: 20px 20px; /* Espaçamento interno */
+    position: relative; /* Para possíveis efeitos adicionais ou camadas */
+    overflow: hidden; /* Garante que nada vaze */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+}
+
+.header-content {
+    z-index: 2; /* Garante que o conteúdo fique acima de qualquer fundo dinâmico */
+}
+
+.hero-header h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra no texto para destaque */
+    margin-bottom: 20px;
+    line-height: 1.1; /* Espaçamento entre linhas */
+}
+
+.hero-header p {
+    font-size: 1.5em; /* Tamanho bom para a descrição */
+    max-width: 800px; /* Limita a largura para melhor leitura */
+    margin-left: auto; /* Centraliza o parágrafo */
+    margin-right: auto; /* Centraliza o parágrafo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    border-color: #ffff;
+    background-color: #ffffff;
+    color: rgb(47, 222, 145);
+    border: 2px solid rgb(47, 222, 145);
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 50px; /* Botão arredondado */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Transição para efeitos de hover */
+}
+
+.cta-button:hover {
+    background-color: rgb(47, 222, 145);
+    color: white;
+     border-color: #ffff;
+    transform: translateY(-5px); /* Efeito de levantar */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-header {
+        min-height: 400px;
+    }
+    .hero-header h1 {
+        font-size: 3.5em;
+    }
+    .hero-header p {
+        font-size: 1.3em;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-header {
+        min-height: 350px;
+        padding: 40px 15px;
+    }
+    .hero-header h1 {
+        font-size: 2.8em;
+    }
+    .hero-header p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-header {
+        min-height: 300px;
+        padding: 30px 10px;
+    }
+    .hero-header h1 {
+        font-size: 2em;
+    }
+    .hero-header p {
+        font-size: 0.9em;
+    }
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+}

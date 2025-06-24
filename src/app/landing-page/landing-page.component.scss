@@ -1,0 +1,407 @@
+.container-section{
+    background-color: #f8f9fa;
+}
+
+.video-legenda {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.video-legenda:hover {
+  color: rgb(47, 222, 145);
+  transform: scale(1.02);
+}
+
+/* --- Estilos da Nova Seção de Conteúdo --- */
+.content-section {
+    padding: 40px 0; /* Espaçamento da seção */
+}
+
+.product-details {
+    border-color: rgba(47, 222, 145, 0.5) !important; /* Borda sutil com a cor tema */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para efeito hover */
+}
+.title{
+    font-size: 2.5em;
+    color: #333;
+}
+
+.product-details:hover {
+    transform: translateY(-5px); /* Leve levantamento no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa no hover */
+}
+
+.product-details ul {
+    list-style: none; /* Remove marcadores de lista padrão */
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.product-details ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* Espaço para o ícone */
+}
+
+.product-details ul li::before {
+    content: '✅'; /* Ícone de checkmark */
+    position: absolute;
+    left: 0;
+    color: rgb(47, 222, 145);
+}
+
+.video-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para efeito hover */
+    overflow: hidden; /* Garante que o rounded corner do video apareça */
+}
+
+.video-card:hover {
+    transform: scale(1.02); /* Leve aumento no tamanho no hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Sombra mais forte */
+}
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.embed-responsive-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Animação de entrada para a seção */
+.content-section .row {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 1s ease-out forwards;
+    animation-delay: 0.8s; /* Atraso para aparecer depois do header */
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 991px) {
+    /* Em telas médias e menores, as colunas empilham-se */
+    .row {
+        flex-direction: column; /* Garante que a coluna do produto fique em cima */
+    }
+    .col-lg-6:nth-child(1) { /* A primeira coluna (produto) */
+        order: 1;
+    }
+    .col-lg-6:nth-child(2) { /* A segunda coluna (vídeo) */
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .dynamic-header {
+        padding: 30px 15px;
+        min-height: 150px;
+    }
+    .dynamic-header h1 {
+        font-size: 2.2em;
+    }
+    .dynamic-header p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .dynamic-header {
+        padding: 20px 10px;
+        min-height: 120px;
+    }
+    .dynamic-header h1 {
+        font-size: 1.8em;
+    }
+    .dynamic-header p {
+        font-size: 0.9em;
+    }
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+.delivery-section h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.delivery-section .lead {
+    font-size: 1.15em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.delivery-step-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delivery-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    background-color: rgb(47, 222, 145) !important;  /* Cor tema */
+    transition: background-color 0.5s ease;
+}
+
+.icon-circle i {
+    line-height: 1; /* Garante que o ícone esteja bem centralizado */
+}
+
+/* Animação para a seção de entrega */
+.delivery-section .row {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 1s ease-out forwards;
+    animation-delay: 1.2s; /* Atraso para aparecer depois da seção anterior */
+}
+
+/* Responsividade da imagem */
+@media (max-width: 991px) {
+    .delivery-section .text-center img {
+        margin-bottom: 30px; /* Adiciona espaço abaixo da imagem em telas menores */
+    }
+}
+
+.promotion-section-title {
+    color: #333;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out; /* Animação para o título da seção */
+}
+
+.promotion-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative; /* Para posicionar o badge do produto e o desconto */
+    overflow: hidden; /* Garante que elementos com overflow sejam cortados */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.promotion-card:hover {
+    transform: translateY(-8px); /* Efeito de levantar */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    border-color: rgb(47, 222, 145); /* Borda destaca na cor tema */
+}
+
+/* Card de destaque (2 unidades) */
+.featured-card {
+    box-shadow: 0 12px 24px rgba(255, 99, 71, 0.25); /* Sombra correspondente */
+}
+
+.featured-card:hover {
+    transform: translateY(-10px); /* Levanta um pouco mais no hover */
+    box-shadow: 0 18px 36px rgba(255, 99, 71, 0.35); /* Sombra ainda mais forte */
+}
+
+
+.featured-card.animate-in .discount-tag {
+    right: -30px; /* Ajuste se quiser animar a entrada, inicialmente fora */
+    /* Você pode precisar de JS para adicionar 'animate-in' após o carregamento da página */
+}
+
+
+/* Imagem do Produto com Badge de Unidades */
+.product-image-container {
+    position: relative;
+    display: inline-block; /* Para o badge ficar posicionado corretamente */
+}
+
+.product-promo-img {
+    max-width: 100px; /* Tamanho da imagem do produto */
+    height: auto;
+    border-radius: 8px; /* Bordas suaves para a imagem */
+}
+
+
+.unit-quantity {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.original-price {
+    color: #888;
+    text-decoration: line-through; /* Risca o preço original */
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.current-price {
+    font-size: 2.5em; /* Preço atual maior */
+    font-weight: bold;
+    color: rgb(47, 222, 145); 
+    margin-bottom: 5px;
+}
+
+.current-price .installments {
+    font-size: 0.5em; /* Tamanho da fonte das parcelas */
+    font-weight: normal;
+    color: #555;
+    vertical-align: middle;
+}
+
+.cash-price {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.frete{
+    color: rgb(47, 222, 145);
+}
+.card-body-modificado{
+    padding: 7px;
+}
+
+.btn-modificado{
+    background-color: rgb(47, 222, 145); /* Cor mais escura no hover */
+    border-color: white;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.btn-modificado:hover{
+    background-color: rgb(39, 186, 122);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px); /* Pequeno efeito de levantar no hover */
+}
+
+.select-offer-btn {
+    background-color: rgb(47, 222, 145); /* Cor do botão (verde tema) */
+    border-color: rgb(47, 222, 145);
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.select-offer-btn:hover {
+    background-color: rgb(39, 186, 122); /* Cor mais escura no hover */
+    border-color: rgb(35, 180, 115);
+    transform: translateY(-2px); /* Pequeno efeito de levantar no hover */
+}
+
+/* --- Animações --- */
+/* Animação para toda a seção de promoções */
+.promotion-section .row {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 1s ease-out forwards;
+    animation-delay: 1.5s; /* Atraso para aparecer depois das outras seções */
+}
+
+/* Animação para os cards de promoção */
+.promotion-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+.promotion-section .col-md-6:nth-child(1) .promotion-card {
+    animation-delay: 1.8s; /* Atraso para o primeiro card */
+}
+
+.promotion-section .col-md-6:nth-child(2) .promotion-card {
+    animation-delay: 2.0s; /* Atraso para o segundo card */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- Responsividade --- */
+@media (max-width: 767px) {
+    .promotion-card {
+        padding: 15px;
+    }
+    .unit-quantity {
+        font-size: 1.4em;
+    }
+    .current-price {
+        font-size: 2em;
+    }
+    .current-price .installments {
+        font-size: 0.45em;
+    }
+    .cash-price {
+        font-size: 1em;
+    }
+    .select-offer-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .discount-tag {
+        font-size: 0.8em;
+        padding: 4px 20px;
+        top: 10px;
+        right: -25px;
+    }
+
+    .product-promo-img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 575px) {
+    .promotion-section {
+        padding: 40px 0;
+    }
+    .promotion-section-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+}
