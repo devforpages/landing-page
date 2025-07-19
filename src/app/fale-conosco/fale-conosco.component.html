@@ -1,0 +1,61 @@
+<section class="container container-card col-md-12 card delivery-step-card">
+    <div class="card-body">
+        <h2 class="mb-5">Fale conosco</h2>
+        <form [formGroup]="faleConoscoForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input
+                id="nome"
+                type="text"
+                formControlName="nome"
+                placeholder="Seu nome"
+            />
+            <div *ngIf="nome?.invalid && nome?.touched" class="error">
+                <small *ngIf="nome?.errors?.['required']">Nome é obrigatório.</small>
+                <small *ngIf="nome?.errors?.['minlength']"
+                >Mínimo de 3 caracteres.</small
+                >
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+                id="email"
+                type="email"
+                formControlName="email"
+                placeholder="seu@email.com"
+            />
+            <div *ngIf="email?.invalid && email?.touched" class="error">
+                <small *ngIf="email?.errors?.['required']">Email é obrigatório.</small>
+                <small *ngIf="email?.errors?.['email']">Email inválido.</small>
+            </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="mensagem">Mensagem:</label>
+                <textarea
+                    id="mensagem"
+                    formControlName="mensagem"
+                    rows="5"
+                    maxlength="255"
+                    placeholder="Digite sua mensagem..."
+                ></textarea>
+
+                <div class="char-count-wrapper">
+                    <div *ngIf="mensagem?.invalid && mensagem?.touched" class="error">
+                        <small *ngIf="mensagem?.errors?.['required']">Mensagem é obrigatória.</small>
+                        <small *ngIf="mensagem?.errors?.['minlength']">Mínimo de 1 caracteres.</small>
+                        <small *ngIf="mensagem?.errors?.['maxlength']">Máximo de 255 caracteres atingido.</small> 
+                    </div>
+                    
+                    <div class="char-count" *ngIf="!mensagem?.errors?.['required'] || mensagem?.errors?.['required']">
+                            {{ mensagem?.value?.length || 0 }}/255 caracteres
+                    </div>
+                </div>
+            </div>
+            <button class="bt-enviar" type="submit" [disabled]="faleConoscoForm.invalid">Enviar</button>
+        </form>
+    </div>
+</section>

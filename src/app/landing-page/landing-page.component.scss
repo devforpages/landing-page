@@ -203,7 +203,7 @@
 
 /* Responsividade da imagem */
 @media (max-width: 991px) {
-    .delivery-section .text-center img {
+    .delivery-section img {
         margin-bottom: 30px; /* Adiciona espaço abaixo da imagem em telas menores */
     }
 }
@@ -216,23 +216,6 @@
     animation: fadeInDown 1s ease-out; /* Animação para o título da seção */
 }
 
-.promotion-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    position: relative; /* Para posicionar o badge do produto e o desconto */
-    overflow: hidden; /* Garante que elementos com overflow sejam cortados */
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.promotion-card:hover {
-    transform: translateY(-8px); /* Efeito de levantar */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
-    border-color: rgb(47, 222, 145); /* Borda destaca na cor tema */
-}
-
 /* Card de destaque (2 unidades) */
 .featured-card {
     box-shadow: 0 12px 24px rgba(255, 99, 71, 0.25); /* Sombra correspondente */
@@ -243,79 +226,13 @@
     box-shadow: 0 18px 36px rgba(255, 99, 71, 0.35); /* Sombra ainda mais forte */
 }
 
-
 .featured-card.animate-in .discount-tag {
     right: -30px; /* Ajuste se quiser animar a entrada, inicialmente fora */
     /* Você pode precisar de JS para adicionar 'animate-in' após o carregamento da página */
 }
 
-
-/* Imagem do Produto com Badge de Unidades */
-.product-image-container {
-    position: relative;
-    display: inline-block; /* Para o badge ficar posicionado corretamente */
-}
-
-.product-promo-img {
-    max-width: 100px; /* Tamanho da imagem do produto */
-    height: auto;
-    border-radius: 8px; /* Bordas suaves para a imagem */
-}
-
-
-.unit-quantity {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.original-price {
-    color: #888;
-    text-decoration: line-through; /* Risca o preço original */
-    font-size: 1em;
-    margin-bottom: 5px;
-}
-
-.current-price {
-    font-size: 2.5em; /* Preço atual maior */
-    font-weight: bold;
-    color: rgb(47, 222, 145); 
-    margin-bottom: 5px;
-}
-
-.current-price .installments {
-    font-size: 0.5em; /* Tamanho da fonte das parcelas */
-    font-weight: normal;
-    color: #555;
-    vertical-align: middle;
-}
-
-.cash-price {
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.frete{
-    color: rgb(47, 222, 145);
-}
 .card-body-modificado{
     padding: 7px;
-}
-
-.btn-modificado{
-    background-color: rgb(47, 222, 145); /* Cor mais escura no hover */
-    border-color: white;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-}
-.btn-modificado:hover{
-    background-color: rgb(39, 186, 122);
-    color: white;
-    border-color: white;
-    transform: translateY(-2px); /* Pequeno efeito de levantar no hover */
 }
 
 .select-offer-btn {
@@ -342,12 +259,6 @@
     animation-delay: 1.5s; /* Atraso para aparecer depois das outras seções */
 }
 
-/* Animação para os cards de promoção */
-.promotion-card {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideInUp 0.8s ease-out forwards;
-}
 
 .promotion-section .col-md-6:nth-child(1) .promotion-card {
     animation-delay: 1.8s; /* Atraso para o primeiro card */
@@ -365,21 +276,7 @@
 
 /* --- Responsividade --- */
 @media (max-width: 767px) {
-    .promotion-card {
-        padding: 15px;
-    }
-    .unit-quantity {
-        font-size: 1.4em;
-    }
-    .current-price {
-        font-size: 2em;
-    }
-    .current-price .installments {
-        font-size: 0.45em;
-    }
-    .cash-price {
-        font-size: 1em;
-    }
+
     .select-offer-btn {
         padding: 10px 20px;
         font-size: 1em;
@@ -389,10 +286,6 @@
         padding: 4px 20px;
         top: 10px;
         right: -25px;
-    }
-
-    .product-promo-img {
-        max-width: 80px;
     }
 }
 

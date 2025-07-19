@@ -1,0 +1,80 @@
+/* Animação para os cards de promoção */
+.promotion-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: slideInUp 0.8s ease-out forwards;
+    position: relative; /* Para posicionar o badge do produto e o desconto */
+    overflow: hidden; /* Garante que elementos com overflow sejam cortados */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.promotion-card:hover {
+    transform: translateY(-8px); /* Efeito de levantar */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    border-color: rgb(47, 222, 145); /* Borda destaca na cor tema */
+}
+
+/* Imagem do Produto com Badge de Unidades */
+.product-image-container {
+    position: relative;
+    display: inline-block; /* Para o badge ficar posicionado corretamente */
+}
+
+.unit-quantity {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.current-price {
+    font-size: 2.5em; /* Preço atual maior */
+    font-weight: bold;
+    color: rgb(47, 222, 145); 
+    margin-bottom: 5px;
+}
+
+.current-price .installments {
+    font-size: 0.5em; /* Tamanho da fonte das parcelas */
+    font-weight: normal;
+    color: #555;
+    vertical-align: middle;
+}
+
+.cash-price {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.frete{
+    color: rgb(47, 222, 145);
+}
+
+.product-promo-img {
+    max-width: 100px; /* Tamanho da imagem do produto */
+    height: auto;
+    border-radius: 8px; /* Bordas suaves para a imagem */
+}
+
+/* --- Responsividade --- */
+@media (max-width: 767px) {
+    .product-promo-img {
+        max-width: 80px;
+    }
+     .promotion-card {
+        padding: 15px;
+    }
+     .unit-quantity {
+        font-size: 1.4em;
+    }
+     .current-price {
+        font-size: 2em;
+    }
+    .current-price .installments {
+        font-size: 0.45em;
+    }
+}

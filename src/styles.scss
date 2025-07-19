@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.container-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-step-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delivery-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-modificado{
+    background-color: rgb(47, 222, 145); /* Cor mais escura no hover */
+    border-color: white;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.btn-modificado:hover{
+    background-color: rgb(39, 186, 122);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px); /* Pequeno efeito de levantar no hover */
+}
+
+
+
