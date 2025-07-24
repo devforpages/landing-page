@@ -1,38 +1,42 @@
 <section class="container-section__card ">
     <h2 class="container-section__titulo">Fale conosco</h2>
+
+    <app-loader [isLoading]="isLoading"></app-loader>
     <div class="container-section__card--card">
         
         <form [formGroup]="faleConoscoForm" (ngSubmit)="onSubmit()">
 
             <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input
-                id="nome"
-                type="text"
-                formControlName="nome"
-                placeholder="Seu nome"
-            />
-            <div *ngIf="nome?.invalid && nome?.touched" class="error">
-                <small *ngIf="nome?.errors?.['required']">Nome é obrigatório.</small>
-                <small *ngIf="nome?.errors?.['minlength']"
-                >Mínimo de 3 caracteres.</small
-                >
-            </div>
+                <label for="nome">Nome:</label>
+                <input
+                    id="nome"
+                    type="text"
+                    formControlName="nome"
+                    placeholder="Seu nome"
+                />
+                <div *ngIf="nome?.invalid && nome?.touched" class="error">
+                    <small *ngIf="nome?.errors?.['required']">Nome é obrigatório.</small>
+                    <small *ngIf="nome?.errors?.['minlength']"
+                    >Mínimo de 3 caracteres.</small
+                    >
+                </div>
             </div>
 
             <div class="form-group">
-            <label for="email">Email:</label>
-            <input
-                id="email"
-                type="email"
-                formControlName="email"
-                placeholder="seu@email.com"
-            />
-            <div *ngIf="email?.invalid && email?.touched" class="error">
-                <small *ngIf="email?.errors?.['required']">Email é obrigatório.</small>
-                <small *ngIf="email?.errors?.['email']">Email inválido.</small>
+                <label for="email">Email:</label>
+                <input
+                    id="email"
+                    type="email"
+                    formControlName="email"
+                    placeholder="seu@email.com"
+                />
+                <div *ngIf="email?.invalid && email?.touched" class="error">
+                    <small *ngIf="email?.errors?.['required']">Email é obrigatório.</small>
+                    <small *ngIf="email?.errors?.['email']">Email inválido.</small>
+                </div>
             </div>
-            </div>
+              
+             
 
             <div class="form-group full-width">
                 <label for="mensagem">Mensagem:</label>
@@ -56,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <button class="bt-enviar" type="submit" [disabled]="faleConoscoForm.invalid">Enviar</button>
+            <button class="button" type="submit" [disabled]="faleConoscoForm.invalid">Enviar</button>
         </form>
     </div>
 </section>

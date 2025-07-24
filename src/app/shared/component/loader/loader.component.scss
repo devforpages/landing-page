@@ -1,0 +1,44 @@
+.loader-container {
+    position: absolute;
+    z-index: 10;
+    width: 78%;
+    height: 73%;
+    display: flex;              
+    flex-direction: column;
+    align-items: center;         
+    justify-content: center;     
+    /* background-color: rgba(255, 255, 255, 0.8);  fundo translúcido opcional */
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top-color: rgb(47, 222, 145);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+.blink {
+  animation: blinkEffect 1s infinite;
+}
+
+@keyframes blinkEffect {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .loader-container{
+         width: 92%;
+         height: 51%;
+    }
+}
