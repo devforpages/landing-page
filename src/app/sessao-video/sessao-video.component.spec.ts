@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingPageComponent } from './landing-page.component';
+import { SessaoVideoComponent } from './sessao-video.component';
 
-describe('LandingPageComponent', () => {
-  let component: LandingPageComponent;
-  let fixture: ComponentFixture<LandingPageComponent>;
+describe('SessaoVideoComponent', () => {
+  let component: SessaoVideoComponent;
+  let fixture: ComponentFixture<SessaoVideoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandingPageComponent]
+      imports: [SessaoVideoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LandingPageComponent);
+    fixture = TestBed.createComponent(SessaoVideoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
