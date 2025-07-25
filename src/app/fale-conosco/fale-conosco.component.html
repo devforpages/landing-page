@@ -36,8 +36,6 @@
                 </div>
             </div>
               
-             
-
             <div class="form-group full-width">
                 <label for="mensagem">Mensagem:</label>
                 <textarea
@@ -63,4 +61,10 @@
             <button class="button" type="submit" [disabled]="faleConoscoForm.invalid">Enviar</button>
         </form>
     </div>
+
+    <app-dialog 
+        [tipo]="tipo"
+        [texto]="texto">
+    </app-dialog>
+
 </section>

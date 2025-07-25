@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -9,17 +9,21 @@ import {
 import { FaleConoscoService } from './fale-conosco.service';
 import { FaleConoscoModel } from './fale-conosco-model/fale-conosco-model';
 import { LoaderComponent } from '../shared/component/loader/loader.component';
+import { DialogComponent } from '../shared/component/dialog/dialog.component';
 
 @Component({
   selector: 'app-fale-conosco',
   templateUrl: './fale-conosco.component.html',
   styleUrls: ['./fale-conosco.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, LoaderComponent],
+  imports: [ReactiveFormsModule, CommonModule, LoaderComponent, DialogComponent],
 })
+
 export class FaleConoscoComponent {
   faleConoscoForm: FormGroup;
   isLoading!: boolean;
+  tipo!: string;
+  texto!: string;
 
   constructor(readonly formBuilder: FormBuilder, readonly faleConoscoService: FaleConoscoService) {
     this.faleConoscoForm = this.formBuilder.group({
@@ -35,6 +39,7 @@ export class FaleConoscoComponent {
       ],
     });
     this.reload(false);
+    //this.dialog('sucesso', 'Teste após 5 segundos');
   }
 
    // getters para facilitar a validação no HTML
@@ -52,6 +57,11 @@ export class FaleConoscoComponent {
    setTimeout(() => {
       this.isLoading = isLoading;
     }, 2000);
+  }
+
+  dialog(tipo: string, texto: string){
+    this.tipo = tipo;
+    this.texto = texto;
   }
   
   onSubmit(): void {
@@ -72,17 +82,17 @@ export class FaleConoscoComponent {
 
       this.faleConoscoService.enviarEmail(dadosPreenchidos).subscribe({
         next: (response) => {
-          console.log("api!!!!: ", response)
-        
+          console.log("api!!!!: ", response);
         },
         error: (error) => {
           console.log("Erro na api: ",error.message);
           this.reload(false);
+          this.dialog('erro', 'Ocorreu algum erro na sua mensagem!');
         },
         complete: () => {
-          console.log("Dados enviado com sucesso!!!");
-          this.faleConoscoForm.reset(); // limpa o formulário após o envio
           this.reload(false);
+          this.faleConoscoForm.reset();
+          this.dialog('sucesso', 'Sua mensagem foi enviada com sucesso!');
         }
       });
     }
