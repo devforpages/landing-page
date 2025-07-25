@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
@@ -10,6 +10,5 @@ import { Component, Input } from '@angular/core';
 
 export class DialogComponent {
   @Input() mostrarMensagem!: boolean;
-  @Input() texto!: string;
-  @Input() tipo!:string;
+
 }

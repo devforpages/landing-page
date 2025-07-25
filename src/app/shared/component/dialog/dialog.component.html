@@ -1,5 +1,3 @@
-@if(texto){
-    <div class="mensagem-container" [ngClass]="tipo">
-    <p>{{ texto }}</p>
-    </div>
-}
+<div *ngIf="mostrarMensagem" class="mensagem-container sucesso">
+  <p>Sua mensagem foi enviada com sucesso!</p>
+</div>
