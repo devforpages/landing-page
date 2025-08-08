@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, inject, NgZone, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -6,6 +6,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { FaleConoscoService } from './fale-conosco.service';
 import { FaleConoscoModel } from './fale-conosco-model/fale-conosco-model';
 import { LoaderComponent } from '../shared/component/loader/loader.component';
@@ -19,12 +20,16 @@ import { DialogComponent } from '../shared/component/dialog/dialog.component';
   imports: [ReactiveFormsModule, CommonModule, LoaderComponent, DialogComponent],
 })
 
-export class FaleConoscoComponent {
-  faleConoscoForm: FormGroup;
+export class FaleConoscoComponent implements OnInit{
+  faleConoscoForm!: FormGroup;
   isLoading!: boolean;
   mostrarMensagem!: boolean;
 
-  constructor(readonly zone: NgZone, readonly formBuilder: FormBuilder, readonly faleConoscoService: FaleConoscoService) {
+  readonly faleConoscoService = inject(FaleConoscoService);
+  readonly zone = inject(NgZone);
+  readonly formBuilder = inject(FormBuilder);
+
+  ngOnInit(): void {
     this.faleConoscoForm = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -40,7 +45,7 @@ export class FaleConoscoComponent {
     this.reload(false);
   }
 
-   // getters para facilitar a validação no HTML
+  // getters para facilitar a validação no HTML
   get nome() {
     return this.faleConoscoForm.get('nome');
   }
@@ -66,14 +71,13 @@ export class FaleConoscoComponent {
         replyTo: this.faleConoscoForm.value.email,
         subject: "Mensagem do fale conosco",
         text: this.faleConoscoForm.value.mensagem,
-        html: `
-          <h1>Olá, sou ${this.faleConoscoForm.value.nome}!</h1>
-          <p>Este é meu e-mail: ${this.faleConoscoForm.value.email}</p>
-          <p>${this.faleConoscoForm.value.mensagem}</p>
-        `
-      };
-
-      this.faleConoscoService.enviarEmail(dadosPreenchidos).subscribe({
+        html:` <h1>Olá, sou ${this.faleConoscoForm.value.nome}!</h1>
+               <p>Este é meu e-mail: ${this.faleConoscoForm.value.email}</p>
+               <p>${this.faleConoscoForm.value.mensagem}</p>
+        `};
+      this.faleConoscoService.enviarEmail(dadosPreenchidos)
+      .pipe(take(1))//faz unsubscribe automaticamente depois da chamada 1 unica vez 
+      .subscribe({
         next: (response) => {
           console.log("api!!!!: ", response);
         },
